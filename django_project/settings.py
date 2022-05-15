@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'consumer',
-    'producer',
+    'rabbitmq.apps.RabbitmqConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +123,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RABBITMQ_HOST = 'localhost'
+RABBITMQ_HEARTBEAT = 600
+RABBITMQ_CONNECTION_TIMEOUT = 300
+RABBITMQ_QUEUE_NAME = 'test'
