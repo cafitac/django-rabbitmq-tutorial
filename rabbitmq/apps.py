@@ -4,8 +4,8 @@ from rabbitmq.consumer import Consumer
 
 
 class RabbitmqConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'rabbitmq'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "rabbitmq"
 
     def ready(self):
         consumer = Consumer()

@@ -29,12 +29,18 @@ class Consumer(threading.Thread):
         self.channel.basic_consume(
             queue=settings.RABBITMQ_QUEUE_NAME,
             on_message_callback=self.receive_callback,
-            auto_ack=True
+            auto_ack=True,
         )
         print("Start consuming")
         self.channel.start_consuming()
 
-    def receive_callback(self, ch: BlockingChannel, method: Basic.Deliver, properties: BasicProperties, body: bytes):
+    def receive_callback(
+        self,
+        ch: BlockingChannel,
+        method: Basic.Deliver,
+        properties: BasicProperties,
+        body: bytes,
+    ):
         print(" [x] Received %r" % body)
 
     def run(self) -> None:

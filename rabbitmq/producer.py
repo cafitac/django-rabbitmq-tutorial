@@ -5,7 +5,7 @@ import django
 import pika
 from django.conf import settings
 
-environ.setdefault("DJANGO_SETTINGS_MODULE", 'django_project.settings')
+environ.setdefault("DJANGO_SETTINGS_MODULE", "django_project.settings")
 django.setup()
 
 
@@ -26,7 +26,12 @@ class Producer:
         )
         print("Producer connected")
 
-    def publish(self, exchange: str = "", routing_key: str = settings.RABBITMQ_QUEUE_NAME, body: dict = None) -> None:
+    def publish(
+        self,
+        exchange: str = "",
+        routing_key: str = settings.RABBITMQ_QUEUE_NAME,
+        body: dict = None,
+    ) -> None:
         if body is None:
             body = {}
 
